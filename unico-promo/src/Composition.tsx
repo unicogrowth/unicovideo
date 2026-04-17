@@ -573,7 +573,7 @@ function SceneCTA() {
       <div style={{ textAlign: "center", zIndex: 1, position: "relative", padding: "0 8%" }}>
         <Overline text="Ready to grow?" delay={6} />
 
-        <MaskedReveal delay={12} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 58, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em" }}>
+        <MaskedReveal delay={12} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 58, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em", color: "#fff" }}>
           Let&apos;s build something
         </MaskedReveal>
         <MaskedReveal delay={22} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 78, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em", color: ACCENT }}>
