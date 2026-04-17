@@ -1,8 +1,10 @@
 import {
   AbsoluteFill,
+  Audio,
   Sequence,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -326,9 +328,9 @@ function SceneLogo() {
         {/* Masked char-stagger reveal */}
         <div style={{ overflow: "hidden", lineHeight: 1.05, paddingBottom: "0.06em" }}>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.06em", alignItems: "baseline" }}>
-            <CharStagger text="UNICO" delay={14} stagger={3} cfg={CFG_SNAPPY} color="#fff" fontSize={120} />
+            <CharStagger text="UNICO" delay={14} stagger={3} cfg={CFG_SNAPPY} color="#fff" fontSize={88} />
             <span style={{ display: "inline-block", width: "0.28em" }} />
-            <CharStagger text="GROWTH" delay={28} stagger={3} cfg={CFG_SNAPPY} color={ACCENT} fontSize={120} />
+            <CharStagger text="GROWTH" delay={28} stagger={3} cfg={CFG_SNAPPY} color={ACCENT} fontSize={88} />
           </div>
         </div>
 
@@ -357,18 +359,18 @@ function SceneProblem() {
         <WordReveal
           words={["Most businesses", "leave money", "on the table."]}
           delays={[8, 22, 36]}
-          fontSize={86}
+          fontSize={64}
           color={["#fff", ACCENT, "#fff"]}
           cfg={CFG_SNAPPY}
         />
 
         {/* Subtext types in */}
-        <div style={{ marginTop: 30, fontSize: 21, color: "rgba(255,255,255,.5)", letterSpacing: "0.01em", lineHeight: 1.6 }}>
+        <div style={{ marginTop: 24, fontSize: 18, color: "rgba(255,255,255,.5)", letterSpacing: "0.01em", lineHeight: 1.6 }}>
           <TypeIn
             text="Slow sites. Manual grunt work. Zero automation."
             startFrame={52}
             speed={1.5}
-            style={{ fontSize: 21 }}
+            style={{ fontSize: 18 }}
           />
         </div>
       </div>
@@ -399,21 +401,21 @@ function SceneSolution() {
 
         {/* Line 1 — crashes from top */}
         <MaskedReveal delay={6} fromY={-120} cfg={CFG_SNAPPY} style={{ lineHeight: 1.05 }}>
-          <span style={{ fontFamily: FONT, fontSize: 100, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em" }}>
+          <span style={{ fontFamily: FONT, fontSize: 72, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em" }}>
             WE BUILD.
           </span>
         </MaskedReveal>
 
         {/* Line 2 — slides from left */}
         <SideCrash delay={14} from="left" cfg={CFG_SNAPPY}>
-          <div style={{ fontFamily: FONT, fontSize: 100, fontWeight: 800, color: ACCENT, letterSpacing: "-0.025em", lineHeight: 1.05 }}>
+          <div style={{ fontFamily: FONT, fontSize: 72, fontWeight: 800, color: ACCENT, letterSpacing: "-0.025em", lineHeight: 1.05 }}>
             WE AUTOMATE.
           </div>
         </SideCrash>
 
         {/* Line 3 — scale punch from center */}
         <div style={{ transform: `scale(${scale})`, lineHeight: 1.05, overflow: "hidden" }}>
-          <span style={{ display: "block", fontFamily: FONT, fontSize: 100, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em" }}>
+          <span style={{ display: "block", fontFamily: FONT, fontSize: 72, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em" }}>
             YOU SCALE.
           </span>
         </div>
@@ -456,13 +458,13 @@ function ServiceCard({ num, label, desc, delay }: { num: string; label: string; 
       textAlign: "left",
     }}>
       <div style={{ height: 3, background: ACCENT, width: lineW, marginBottom: 18, boxShadow: `0 0 8px 2px ${ACCENT}` }} />
-      <div style={{ fontFamily: FONT, fontSize: 50, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.02em" }}>
+      <div style={{ fontFamily: FONT, fontSize: 38, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.02em" }}>
         {showNum ? num : "—"}
       </div>
-      <div style={{ fontFamily: FONT, fontSize: 16, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginTop: 6, color: "#fff" }}>
+      <div style={{ fontFamily: FONT, fontSize: 14, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginTop: 5, color: "#fff" }}>
         {label}
       </div>
-      <div style={{ fontFamily: FONT, fontSize: 13, color: "rgba(255,255,255,.42)", marginTop: 8, lineHeight: 1.55 }}>
+      <div style={{ fontFamily: FONT, fontSize: 12, color: "rgba(255,255,255,.42)", marginTop: 6, lineHeight: 1.55 }}>
         {desc}
       </div>
     </div>
@@ -487,7 +489,7 @@ function SceneServices() {
         <MaskedReveal delay={4} cfg={CFG_SMOOTH} style={{ marginBottom: 28, fontSize: 16, fontFamily: FONT, fontWeight: 600, letterSpacing: "0.38em", textTransform: "uppercase", color: ACCENT }}>
           What We Do
         </MaskedReveal>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, maxWidth: 1020, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14, maxWidth: 740, margin: "0 auto" }}>
           {SERVICES.map((s, i) => (
             <ServiceCard key={s.num} {...s} delay={10 + i * 16} />
           ))}
@@ -523,21 +525,21 @@ function SceneTagline() {
       <div style={{ textAlign: "center", zIndex: 1, position: "relative", padding: "0 8%" }}>
         {/* "PREMIUM." — crashes from left */}
         <SideCrash delay={4} from="left" cfg={CFG_SNAPPY}>
-          <div style={{ fontFamily: FONT, fontSize: 100, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em", lineHeight: 1.05, textAlign: "center" }}>
+          <div style={{ fontFamily: FONT, fontSize: 76, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em", lineHeight: 1.05, textAlign: "center" }}>
             PREMIUM.
           </div>
         </SideCrash>
 
         {/* "RESULTS-DRIVEN." — crashes from right */}
         <SideCrash delay={18} from="right" cfg={CFG_SNAPPY}>
-          <div style={{ fontFamily: FONT, fontSize: 100, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em", lineHeight: 1.05 }}>
+          <div style={{ fontFamily: FONT, fontSize: 76, fontWeight: 800, color: "#fff", letterSpacing: "-0.025em", lineHeight: 1.05 }}>
             RESULTS-DRIVEN.
           </div>
         </SideCrash>
 
         {/* "GROWTH." — scale punch in accent */}
         <div style={{ transform: `scale(${growthScale})`, opacity: growthOpacity, lineHeight: 1.05 }}>
-          <div style={{ fontFamily: FONT, fontSize: 116, fontWeight: 800, color: ACCENT, letterSpacing: "-0.025em", textShadow: `0 0 60px rgba(232,67,26,0.6)` }}>
+          <div style={{ fontFamily: FONT, fontSize: 88, fontWeight: 800, color: ACCENT, letterSpacing: "-0.025em", textShadow: `0 0 60px rgba(232,67,26,0.6)` }}>
             GROWTH.
           </div>
         </div>
@@ -571,7 +573,7 @@ function SceneCTA() {
       <div style={{ textAlign: "center", zIndex: 1, position: "relative", padding: "0 8%" }}>
         <Overline text="Ready to grow?" delay={6} />
 
-        <MaskedReveal delay={12} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 78, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em" }}>
+        <MaskedReveal delay={12} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 58, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em" }}>
           Let&apos;s build something
         </MaskedReveal>
         <MaskedReveal delay={22} cfg={CFG_SNAPPY} style={{ lineHeight: 1.08, fontSize: 78, fontFamily: FONT, fontWeight: 800, letterSpacing: "-0.02em", color: ACCENT }}>
@@ -583,8 +585,8 @@ function SceneCTA() {
           <div style={{
             display: "inline-block",
             background: `linear-gradient(135deg, #E8431A 0%, #FF5E2E 100%)`,
-            padding: "18px 54px",
-            fontFamily: FONT, fontSize: 20, fontWeight: 700,
+            padding: "16px 48px",
+            fontFamily: FONT, fontSize: 17, fontWeight: 700,
             letterSpacing: "0.09em", textTransform: "uppercase",
             boxShadow: `0 0 ${40 + glowPulse * 30}px ${10 + glowPulse * 10}px rgba(232,67,26,${0.35 + glowPulse * 0.2})`,
           }}>
@@ -596,7 +598,7 @@ function SceneCTA() {
         <div style={{
           marginTop: 48,
           opacity: interpolate(logoS, [0, 1], [0, 1]),
-          fontFamily: FONT, fontSize: 42, fontWeight: 800, letterSpacing: "0.06em",
+          fontFamily: FONT, fontSize: 34, fontWeight: 800, letterSpacing: "0.06em",
         }}>
           UNICO <span style={{ color: ACCENT }}>GROWTH</span>
         </div>
@@ -609,6 +611,7 @@ function SceneCTA() {
 export const UnicoPromo: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: BG }}>
+      <Audio src={staticFile("music.wav")} volume={0.32} />
       <Sequence from={0}                    durationInFrames={S1}><SceneLogo /></Sequence>
       <Sequence from={S1}                   durationInFrames={S2}><SceneProblem /></Sequence>
       <Sequence from={S1+S2}                durationInFrames={S3}><SceneSolution /></Sequence>
