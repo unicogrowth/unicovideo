@@ -472,10 +472,10 @@ function ServiceCard({ num, label, desc, delay }: { num: string; label: string; 
 }
 
 const SERVICES = [
-  { num: "01", label: "Custom Websites",   desc: "High-converting sites that command attention & drive leads" },
-  { num: "02", label: "E-Commerce Builds", desc: "Online stores engineered to convert visitors into buyers" },
-  { num: "03", label: "AI Automation",     desc: "Intelligent systems that handle operations while you sleep" },
-  { num: "04", label: "n8n Workflows",     desc: "End-to-end workflow automation for every operation" },
+  { num: "01", label: "Custom Websites",  desc: "High-converting sites that command attention & drive leads" },
+  { num: "02", label: "Custom Apps",      desc: "Tailor-made applications built for your exact business needs" },
+  { num: "03", label: "AI Systems",       desc: "Intelligent systems that handle operations while you sleep" },
+  { num: "04", label: "CRM Integrations", desc: "Seamless CRM setups that keep your pipeline running on autopilot" },
 ];
 
 function SceneServices() {
@@ -555,14 +555,12 @@ function SceneTagline() {
 // ── Scene 6 · CTA / Outro ─────────────────────────────────────────────────────
 function SceneCTA() {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   // CTA button glow pulse (repeating sine)
   const btnOpacity = interpolate(Math.max(0, frame - 36), [0, 16], [0, 1], { extrapolateRight: "clamp" });
   const glowPulse = 0.5 + Math.sin(Math.max(0, frame - 50) * 0.14) * 0.3;
 
   // Logo final reveal
-  const logoS = spr(frame, fps, 70, CFG_SMOOTH);
 
   return (
     <AbsoluteFill style={{ background: BG, alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
@@ -594,14 +592,6 @@ function SceneCTA() {
           </div>
         </div>
 
-        {/* Logo fade in */}
-        <div style={{
-          marginTop: 48,
-          opacity: interpolate(logoS, [0, 1], [0, 1]),
-          fontFamily: FONT, fontSize: 34, fontWeight: 800, letterSpacing: "0.06em",
-        }}>
-          UNICO <span style={{ color: ACCENT }}>GROWTH</span>
-        </div>
       </div>
     </AbsoluteFill>
   );
